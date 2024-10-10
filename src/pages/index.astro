@@ -14,19 +14,39 @@ import pierre from "../assets/images/pierre.jpeg";
 import tyndfilm from "../assets/images/tynd-film.jpg";
 import "../styles/tobii.min.css";
 ---
-<MainLayout title="Titel">
+<MainLayout title="Uperfekt er perfekt">
 	<article class="p-4 md:p-0">
+		<!-- titel -->
 		<section class="max-w-xl mx-auto mt-32 prose" id="titel">
-			<h2 class="text-6xl md:text-9xl text-center">Uperfekt er perfekt</h2>
+			<h2 class="text-6xl md:text-9xl text-center text-black">Uperfekt er <span class="bg-gradient-to-b from-pink-500 to-yellow-300 text-transparent bg-clip-text animate__animated animate__fadeIn animate__delay-0.4s ">perfekt</span></h2>
 		</section>
-		<section class="max-w-4xl mx-auto mt-32" id="herovideo">
-			<video width="1280" height="960" autoplay muted loop>
-				<source src="pierre-falcke-video.mp4" type="video/mp4">
-			</video> 
+
+		<!-- video forneden -->
+		<section id="videoonhover" x-data class="max-w-4xl mx-auto mt-32">
+			<span class="font-bold text-2xl">txt</span>
+			<div class="bg-gradient-to-b from-pink-500 to-yellow-300 ">
+				<video x-ref="hovervideo" class="hover:rotate-3" muted loop @mouseenter="$refs.hovervideo.play()" @mouseleave="$refs.hovervideo.pause()">
+					<source src="pierre-falcke-video.mp4" type="video/mp4">
+					<source src="vidimg.webm" type="video/webm">
+					</video>
+			</div>
+			
 		</section>
+
+		
+
+
+		
+		<!-- selvportræt med tekstboks -->
 		<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
 			<p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
-			<div>
+		</section>
+
+		<section class="mt-8 h-screen w-100 bg-cover bg-center" style="background-image: url('/pierre.jpeg');">
+			<p class="parallaxelement w-3/4 mx-auto text-2xl italic text-center bg-black p-8 text-white">Pierre sælger 2 millioner fotos om året</p>
+		</section>
+
+		<!-- <div>
 				<a href="pierre.jpeg" class="lightbox">
 					<Image src={pierre} alt="" class="my-0"/>
 					<figcaption>Pierre Falcke, selvportræt</figcaption>
@@ -40,25 +60,31 @@ import "../styles/tobii.min.css";
 			</p>
 			<p class="text-2xl italic text-center  bg-black p-8 text-white">
 				Du ser hans fotos ca. 2 gange om dagen
-			</p>
-		</section>
+			</p> -->
+
+
+
+		<!-- afsnit med stock billeder -->
 		<section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="hvaderstockfotos">
 			<h2 class="text-2xl">Hvad er stock-fotos?</h2>
-			<div class="grid grid-cols-3 gap-4">
-				<div>
-					<p>Stock-fotos er billeder, der kan købes fra et foto-website. De bruges af aviser, til markedsføring og som indhold på websites. En licens til at bruge et foto koster typisk mellem 10 og 100 kroner, alt afhængig af hvad de skal bruges til.</p>
-					<Image src={arbejde} alt="" />
+				<div class="grid grid-cols-3 gap-4">
+					<div class="stagger">
+						<p>Stock-fotos er billeder, der kan købes fra et foto-website. De bruges af aviser, til markedsføring og som indhold på websites. En licens til at bruge et foto koster typisk mellem 10 og 100 kroner, alt afhængig af hvad de skal bruges til.</p>
+						<Image src={arbejde} alt="tre personer der kigger i en computer" />
+					</div>
+					<div class="stagger">
+						<p>Stock-fotos bliver ofte kritiseret for at være uden sjæl - det er de der billeder af en læge i hvid kittel med stetoskop om halsen på en meget hvid baggrund eller en meget glad dame fra virksomhedens salgs- eller supportafdeling.</p>
+						<Image src={apoteket} alt="to personer i et apotek" />
+					</div> 
+					<div class="stagger">
+						<p>Stock-fotos har eksisteret i mange år. Før branchen blev digital, tilbød stock-foto virksomhederne billedmapper, der kunne bestilles fra. Men stock-foto branchen var én af de tidlige til at blive fuldt digitaliseret.</p>
+						<Image src={godtarbejde} alt="to personer der giver hinanden et high five" />
+					</div>
 				</div>
-				<div>
-					<p>Stock-fotos bliver ofte kritiseret for at være uden sjæl - det er de der billeder af en læge i hvid kittel med stetoskop om halsen på en meget hvid baggrund eller en meget glad dame fra virksomhedens salgs- eller supportafdeling.</p>
-					<Image src={apoteket} alt="" />
-				</div> 
-				<div>
-					<p>Stock-fotos har eksisteret i mange år. Før branchen blev digital, tilbød stock-foto virksomhederne billedmapper, der kunne bestilles fra. Men stock-foto branchen var én af de tidlige til at blive fuldt digitaliseret.</p>
-					<Image src={godtarbejde} alt="" />
-				</div>
-			</div>
+			
 		</section>
+
+		<!-- tekst om pierres berømelse -->
 		<section class="max-w-xl mx-auto mt-32 prose" id="pierresberoemmelse">
 			<h2 class="text-4xl">Pierres berømmelse</h2>
 			<p>Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
@@ -68,6 +94,8 @@ import "../styles/tobii.min.css";
 			<p>Pierres profeti om stock-foto branchen holdt stik. Pierre var allerede en af landets bedst sælgende stock-fotografer, før han blev færdig med studiet på DMJX. 
 			</p>
 		</section>
+
+		<!-- tekst om ens skillevej -->
 		<section id="enskillevej">
 			<div class="max-w-xl mx-auto mt-32 prose">
 				<h2 class="text-4xl">En skillevej</h2>
@@ -92,6 +120,8 @@ import "../styles/tobii.min.css";
 				<p>Pierre tog det endda så vidt at han ikke kun droppede at tage stock-fotos. Han fjernede også alle stock-fotos fra de tjenester, han solgte sine fotos hos. Han gik fra at være en god forretningsdrivende til at blive en vaskeægte boheme-type på rekordtid.</p>
 			</div>
 		</section>
+
+		<!-- tekst om fotoeksperimenter -->
 		<section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="fotoeksperimenter">
 			<h2 class="text-2xl">Fotoeksperimenter</h2>
 			<div class="grid grid-cols-3 gap-4">
@@ -112,6 +142,8 @@ import "../styles/tobii.min.css";
 				</div>
 			</div>
 		</section>
+
+		<!-- tekst om ny begyndlese med img -->
 		<section id="nybegyndelse">
 			<div class="max-w-xl mx-auto my-32 prose">
 				<h2 class="text-4xl">En ny begyndelse</h2>
@@ -135,16 +167,63 @@ import "../styles/tobii.min.css";
 				<p>Karrieren begynder også så småt også at gå den rette vej: Pierre er begyndt at sælge fotokunst på nettet, og har udgivet sin første foto-bog med titlen “Lidt i fem,” som er en fotografisk odyssé om at slæbe en brandert hjem i de tidlige morgentimer. I forbindelse med udgivelsen af bogen, har han en udstilling på vej i det Kongelige Biblioteks fotoudstilling.</p>
 				<p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>			
 				<div>
-					<a href="lidtifem-pierre-falcke.jpg" class="lightbox" alt="">
+					<a href="lidtifem-pierre-falcke.jpg" class="lightbox" alt="billede af bog">
 						<Image src={lidtifem} alt="" class="my-0" />
 						<figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
 					</a>			
 				</div>
 			</div>
 		</section>
+		<div class="progress-bar h-4 fixed h-full bg-gradient-to-b from-pink-500 to-yellow-300 left-0 origin-top-left top-0 right-[99%]">	
+		</div>
 	</article>
 </MainLayout>
+
+
+
 <script is:inline src="/tobii.min.js"></script>
 <script defer>
 	const tobii = new Tobii(); 
 </script>
+
+<script>
+	/* Import af Motion One biblioteket */
+	import { animate, stagger, inView, scroll, timeline } from "motion";
+	animate( "body", { opacity: [ 0, 1] }, { duration: 2 })
+	inView( ".stagger" , () =>{
+		animate(
+		".stagger img",
+		{ opacity: [0, 1] },
+		{ 
+			delay: stagger(1, { start: 1 })
+		}
+		)
+	})
+	// til ordet perfekt
+	inView( "." , () =>{
+		animate(
+		".stagger img",
+		{ opacity: [0, 1] },
+		{ 
+			delay: stagger(1, { start: 1 })
+		}
+		)
+	})
+
+	// progess bar
+	scroll( animate(".progress-bar", { scaleY: [0, 1] }));
+
+	// parallax
+
+	scroll(animate(".parallaxelement", { y: [50, 500] }), {
+		target: document.querySelector(".parallaxelement"),
+	});
+
+
+
+
+
+
+
+	</script>
+
