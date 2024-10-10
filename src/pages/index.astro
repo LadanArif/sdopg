@@ -10,6 +10,11 @@ import godtarbejde from "../assets/images/godt-arbejde.jpg";
 import lidtifem from "../assets/images/lidtifem-pierre-falcke.jpg";
 import smena from "../assets/images/lomo-smena-17.jpg";
 import overouticm from "../assets/images/over-out-icm.jpeg";
+import img1 from "../assets/images/img1.jpg";
+import img2 from "../assets/images/img2.jpg";
+import img3 from "../assets/images/img3.jpg";
+import img4 from "../assets/images/img4.jpg";
+import img5 from "../assets/images/img5.jpg";
 import pierre from "../assets/images/pierre.jpeg";
 import tyndfilm from "../assets/images/tynd-film.jpg";
 import "../styles/tobii.min.css";
@@ -18,50 +23,40 @@ import "../styles/tobii.min.css";
 	<article class="p-4 md:p-0">
 		<!-- titel -->
 		<section class="max-w-xl mx-auto mt-32 prose" id="titel">
-			<h2 class="text-6xl md:text-9xl text-center text-black">Uperfekt er <span class="bg-gradient-to-b from-pink-500 to-yellow-300 text-transparent bg-clip-text animate__animated animate__fadeIn animate__delay-0.4s ">perfekt</span></h2>
+			<h2 class="text-6xl md:text-9xl text-center text-black">Uperfekt er
+				<span class=" bg-gradient-to-r bg-clip-text text-transparent from-blue-400 via-purple-500 to-indigo-700
+            animate-text">perfekt</span></h2>
 		</section>
+
+
+		
 
 		<!-- video forneden -->
 		<section id="videoonhover" x-data class="max-w-4xl mx-auto mt-32">
 			<span class="font-bold text-2xl">txt</span>
-			<div class="bg-gradient-to-b from-pink-500 to-yellow-300 ">
+			<div class="bg-gradient-to-b from-blue-500 to-purple-700">
 				<video x-ref="hovervideo" class="hover:rotate-3" muted loop @mouseenter="$refs.hovervideo.play()" @mouseleave="$refs.hovervideo.pause()">
 					<source src="pierre-falcke-video.mp4" type="video/mp4">
 					<source src="vidimg.webm" type="video/webm">
 					</video>
 			</div>
-			
 		</section>
 
-		
 
-
-		
 		<!-- selvportræt med tekstboks -->
-		<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
+		<section class="max-w-xl mx-auto mt-32 prose pb-12" id="manchet">
 			<p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
 		</section>
 
-		<section class="mt-8 h-screen w-100 bg-cover bg-center" style="background-image: url('/pierre.jpeg');">
-			<p class="parallaxelement w-3/4 mx-auto text-2xl italic text-center bg-black p-8 text-white">Pierre sælger 2 millioner fotos om året</p>
-		</section>
-
-		<!-- <div>
-				<a href="pierre.jpeg" class="lightbox">
-					<Image src={pierre} alt="" class="my-0"/>
-					<figcaption>Pierre Falcke, selvportræt</figcaption>
-				</a>
-			</div>
-			<p class="text-2xl italic text-center bg-black p-8 text-white">
-				Pierre sælger 2 millioner fotos om året
-			</p>
-			<p class="text-2xl italic text-center bg-black p-8 text-white">
-				Det svarer til én fotolicens hvert 16. sekund
-			</p>
-			<p class="text-2xl italic text-center  bg-black p-8 text-white">
-				Du ser hans fotos ca. 2 gange om dagen
-			</p> -->
-
+		<div class="flex items-center h-screen w-100 bg-cover bg-center bg-fixed" style="background-image: url('/pierre.jpeg')" >
+			<p class="w-3/4 lg:w-1/2 mx-auto p-10 bg-slate-50 text-xl sticky top-1/4">Pierre sælger 2 millioner fotos om året</p>
+		</div>
+		<div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('/pierre.jpeg')" >
+			<p class="w-3/4 lg:w-1/2 mx-auto p-10 bg-slate-50 text-xl sticky top-1/4">Du ser hans fotos ca. 2 gange om dagen</p>
+		</div>
+		<div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('/pierre.jpeg')" >
+			<p class="w-3/4 lg:w-1/2 mx-auto p-10 bg-slate-50 text-xl sticky top-1/4">Det svarer til én fotolicens hvert 16. sekund</p>
+		</div>
 
 
 		<!-- afsnit med stock billeder -->
@@ -103,13 +98,16 @@ import "../styles/tobii.min.css";
 				<p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
 			</div>
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
-				<div>
+				<div class="return_1">
 					<a href="glitch.jpg" class="lightbox">
 						<Image src={glitch} alt="" class="my-0" />
 						<figcaption>Glitch kunst</figcaption>
 					</a>
 				</div>
-				<div>
+
+				<!-- animate__animated animate__fadeInLeft  -->
+				
+				<div class="return_2">
 					<a href="lomo-smena-17.jpg" class="lightbox">
 						<Image src={smena} alt="" class="my-0" />
 						<figcaption>Dobbelteksponering med Smena</figcaption>
@@ -143,6 +141,23 @@ import "../styles/tobii.min.css";
 			</div>
 		</section>
 
+		<!-- horisontal scroll -->
+		<div class="overflow-clip max-w-4xl mx-auto my-32 prose ">
+			<h2 class="">Udsnit af Pierres <span class="bg-gradient-to-b from-blue-500 to-purple-700 text-transparent bg-clip-text ">fotografier</span></h2>
+			<section id="horisontalscrollsection" class="h-[500vw] prose">
+				<ul id="horisontalliste" class="list-none pl-0 flex sticky top-[10vh]">
+				<li class="pl-0 flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={img1} class="w-2/3" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+				<li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={img2} class="w-2/3" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+				<li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={img3} class="w-2/3" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+				<li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={img4} class="w-2/3" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+				<li class="flex w-[100vw] items-start justify-center flex-col overflow-hidden flex-grow-0 flex-shrink-0 flex-auto"><figure class="flex flex-row max-w-[800px]"><Image src={img5} class="w-2/3" alt="foto" /><figcaption class="pl-4 italic w-1/3">Dette fine, lille kamera er et Diana F, der skyder med 120-film.</figcaption></figure></li>
+				</ul>
+			</section>
+		</div>
+
+
+
+
 		<!-- tekst om ny begyndlese med img -->
 		<section id="nybegyndelse">
 			<div class="max-w-xl mx-auto my-32 prose">
@@ -174,8 +189,8 @@ import "../styles/tobii.min.css";
 				</div>
 			</div>
 		</section>
-		<div class="progress-bar h-4 fixed h-full bg-gradient-to-b from-pink-500 to-yellow-300 left-0 origin-top-left top-0 right-[99%]">	
 		</div>
+		<div class="progress-bar h-4 fixed h-full bg-gradient-to-b from-blue-500 to-purple-700 left-0 origin-top-left top-0 right-[99%]"></div>
 	</article>
 </MainLayout>
 
@@ -200,26 +215,68 @@ import "../styles/tobii.min.css";
 		)
 	})
 	// til ordet perfekt
-	inView( "." , () =>{
-		animate(
-		".stagger img",
-		{ opacity: [0, 1] },
-		{ 
-			delay: stagger(1, { start: 1 })
-		}
-		)
-	})
+	// inView( "." , () =>{
+	// 	animate(
+	// 	".stagger img",
+	// 	{ opacity: [0, 1] },
+	// 	{ 
+	// 		delay: stagger(1, { start: 1 })
+	// 	}
+	// 	)
+	// })
 
 	// progess bar
 	scroll( animate(".progress-bar", { scaleY: [0, 1] }));
 
-	// parallax
 
-	scroll(animate(".parallaxelement", { y: [50, 500] }), {
-		target: document.querySelector(".parallaxelement"),
+	// parallax
+	scroll(animate(".parallax1", { y: [80, 500] }), {
+		target: document.querySelector(".parallax"),
+	});
+	scroll(animate(".parallax2", { y: [100, 600] }), {
+		target: document.querySelector(".parallax2"),
+	});
+	scroll(animate(".parallax3", { y: [110, 700] }), {
+		target: document.querySelector(".parallax3"),
 	});
 
+	scroll(
+	animate("#horisontalliste", {
+		transform: ["none", "translateX(-500vw)"]
+	}),
+	{ target: document.querySelector("#horisontalscrollsection") }
+	); 
 
+	// inview return
+	inView( ".return_1", ({ target }) => {
+  	animate(
+      target,
+      { translate: [-710, 0] },
+	  
+      { delay: 1, duration: 1 },
+  	) 
+    return () => {
+      animate(
+        target,
+        { translate: [-710, 0]}
+      )
+  	}
+	}) 
+
+	inView( ".return_2", ({ target }) => {
+  	animate(
+      target,
+      { translate: [710, 0] },
+	  
+      { delay: 1, duration: 1 },
+  	) 
+    return () => {
+      animate(
+        target,
+        { translate: [-710, 0]}
+      )
+  	}
+	}) 
 
 
 
