@@ -15,6 +15,8 @@ import img2 from "../assets/images/img2.jpg";
 import img3 from "../assets/images/img3.jpg";
 import img4 from "../assets/images/img4.jpg";
 import img5 from "../assets/images/img5.jpg";
+import scan from "../assets/images/scan.jpg";
+import lomo1 from "../assets/images/lomo1.jpg";
 import pierre from "../assets/images/pierre.jpeg";
 import tyndfilm from "../assets/images/tynd-film.jpg";
 const { href="#", target="_self"} = Astro.props; 
@@ -28,9 +30,7 @@ import "../styles/tobii.min.css";
 				<span class="bg-gradient-to-r bg-clip-text text-transparent from-blue-400 via-purple-500 to-indigo-700
             animate-text">perfekt</span></h2>
 		</section>
-
-
-		
+	
 
 		<!-- video forneden -->
 		<section id="videoonhover" x-data class="max-w-4xl mx-auto mt-32">
@@ -52,10 +52,10 @@ import "../styles/tobii.min.css";
 		<div class="flex items-center h-screen w-100 bg-cover bg-center bg-fixed" style="background-image: url('/pierre.jpeg')" >
 			<p class="w-3/4 lg:w-1/2 mx-auto p-10 bg-slate-50 text-xl sticky top-1/4">Pierre sælger 2 millioner fotos om året</p>
 		</div>
-		<div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('/pierre.jpeg')" >
+		<div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('/scan.jpg')" >
 			<p class="w-3/4 lg:w-1/2 mx-auto p-10 bg-slate-50 text-xl sticky top-1/4">Du ser hans fotos ca. 2 gange om dagen</p>
 		</div>
-		<div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('/pierre.jpeg')" >
+		<div class="flex items-center h-screen w-100 bg-cover bg-center" style="background-image: url('/lomo1.jpg')" >
 			<p class="w-3/4 lg:w-1/2 mx-auto p-10 bg-slate-50 text-xl sticky top-1/4">Det svarer til én fotolicens hvert 16. sekund</p>
 		</div>
 
@@ -82,8 +82,8 @@ import "../styles/tobii.min.css";
 
 		<!-- tekst om pierres berømelse -->
 		 <div class="">
-			<section class="max-w-xl mx-auto mt-32 prose pb-16 pt-8" id="pierresberoemmelse">
-				<h2 class="text-4xl">Pierres berømmelse</h2>
+			<section class="berømmelse max-w-xl mx-auto mt-32 prose pb-16 pt-8 animate__animated animate__zoomIn" id="pierresberoemmelse">
+				<h2 class="text-4xl">Pierres <span class="stagger_berømmelse">berømmelse</span></h2>
 				<p>Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
 				<p>Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil. </p>
 				<p>På det tidspunkt var stock-foto industrien i starten af en revolution: De første online stock-foto websites begyndte at komme på markedet, men de store, etablerede spillere på markedet holdt lidt igen. Pierre så det for sig: “Om ganske få år er hele branchen digital, og dem der ikke hopper med på den digitale vogn, lukker.”</p>
@@ -92,25 +92,32 @@ import "../styles/tobii.min.css";
 				</p>
 			</section>
 		 </div>
-		
+
+	
 
 		<!-- tekst om ens skillevej -->
 		<section id="enskillevej">
-			<div class="max-w-xl mx-auto mt-32 prose">
+			<div class="max-w-xl mx-auto mt-32 prose" >
 				<h2 class="text-4xl">En skillevej</h2>
 				<p>Pierre tjente godt det følgende årti. Men stille og roligt begyndte billederne også at give ham kvalme. Han kunne ikke holde sit eget arbejde ud, og måtte finde et modsvar til alle de blankpolerede fotos. Noget han kunne lave med stolthed. Pierre bestluttede sig for at droppe stock-fotos, og vende tilbage til rødderne.</p>
 				<p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
 			</div>
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
-				<div class="return_1">
-					<a href="glitch.jpg" class="lightbox underline cursor cursor-mincursor" target={target}><slot/>
+				<div class="return_1" x-data>
+					<a href="glitch.jpg" class="lightbox underline cursor cursor-mincursor" @click="$refs.lyd.play()" target={target}><slot/>
 						<Image src={glitch} alt="" class="my-0" />
+						<audio x-ref="lyd">
+							<source src="lyd.mp3" type="audio/mpeg" />
+						</audio>
 						<figcaption>Glitch kunst</figcaption>
 					</a>
 				</div>
-				<div class="return_2">
-					<a href="lomo-smena-17.jpg" class="lightbox underline cursor cursor-mincursor" target={target}><slot/>
+				<div class="return_2" x-data>
+					<a href="lomo-smena-17.jpg" class="lightbox underline cursor cursor-mincursor" @click="$refs.lyd.play()" target={target}><slot/>
 						<Image src={smena} alt="" class="my-0" />
+						<audio x-ref="lyd">
+							<source src="lyd.mp3" type="audio/mpeg" />
+						</audio>
 						<figcaption>Dobbelteksponering med Smena</figcaption>
 					</a>
 				</div>
@@ -165,33 +172,38 @@ import "../styles/tobii.min.css";
 				<h2 class="text-4xl">En ny begyndelse</h2>
 				<p>Men Pierre er glad for sin beslutning. Indkomsten er lavere nu, men han har stadig lidt penge på kontoen, og studerer nu kunstfotografering på fotoskolen Fatamorgana. Han glæder sig over hver dags kunstneriske eksperimenter, og er for første gang i sit liv rigtig stolt af sit arbejde. Som Pierre selv udtrykker det: <span class="italic">“Det interessante ligger i fejlen. Et foto med masser af fejl er interessant. Jeg eksperimenterer med udstyr og teknik, og skaber nye visuelle udtryk. Det uperfekte er perfekt.”</span></p>
 			</div>
-			<!-- lyd -->
-			<section id="lydeffekter" class="" x-data>
-				<audio x-ref="lydfil">
-					<source src="lyd.mp3" type="audio/mpeg">
-				</audio>
-			</section>
 
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
-				<div>
-					<a href="over-out-icm.jpeg" class="lightbox" target={target}><slot/> 
-						<Image src={overouticm} alt="" class="my-0 underline cursor cursor-mincursor" @click="$refs.lydfil.play()"/>
+				<div x-data>
+					<a href="over-out-icm.jpeg" class="lightbox" @click="$refs.lyd.play()" target={target}><slot/> 
+						<Image src={overouticm} alt="" class="my-0 underline cursor cursor-mincursor"/>
+						<audio x-ref="lyd">
+							<source src="lyd.mp3" type="audio/mpeg" />
+						</audio>
 						<figcaption>Overeksponeret og ude af fokus</figcaption>
 					</a>	
 				</div>
-				<div>
-					<a href="tynd-film.jpg" class="lightbox" target={target}><slot/>
+				<div x-data>
+					<a href="tynd-film.jpg" class="lightbox"@click="$refs.lyd.play()" target={target}><slot/>
 						<Image src={tyndfilm} alt="" class="my-0 underline cursor cursor-mincursor"/>
+						<audio x-ref="lyd">
+							<source src="lyd.mp3" type="audio/mpeg" />
+						</audio>
 						<figcaption>Tynd film</figcaption>
 					</a>
 				</div>
 			</div>
+
+
 			<div class="max-w-xl mx-auto my-32 prose">
 				<p>Karrieren begynder også så småt også at gå den rette vej: Pierre er begyndt at sælge fotokunst på nettet, og har udgivet sin første foto-bog med titlen “Lidt i fem,” som er en fotografisk odyssé om at slæbe en brandert hjem i de tidlige morgentimer. I forbindelse med udgivelsen af bogen, har han en udstilling på vej i det Kongelige Biblioteks fotoudstilling.</p>
 				<p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>			
-				<div>
-					<a href="lidtifem-pierre-falcke.jpg" class="lightbox underline cursor cursor-mincursor" target={target}><slot/ alt="billede af bog">
+				<div x-data>
+					<a href="lidtifem-pierre-falcke.jpg" class="lightbox underline cursor cursor-mincursor" @click="$refs.lyd.play()" target={target}><slot/ alt="billede af bog">
 						<Image src={lidtifem} alt="" class="my-0" />
+						<audio x-ref="lyd">
+							<source src="lyd.mp3" type="audio/mpeg" />
+						</audio>
 						<figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
 					</a>			
 				</div>
@@ -222,6 +234,7 @@ import "../styles/tobii.min.css";
 		}
 		)
 	})
+
 
 	// progess bar
 	scroll( animate(".progress-bar", { scaleY: [0, 1] }));
@@ -264,6 +277,13 @@ import "../styles/tobii.min.css";
 	{ target: document.querySelector("#horisontalscrollsection") }
 	); 
 
+
+	inView( ".berømmelse" , () =>{
+		animate(
+		".berømmelse",
+		{ opacity: [0, 1] },
+		)
+	})
 
 
 

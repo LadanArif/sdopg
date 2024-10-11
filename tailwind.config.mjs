@@ -5,6 +5,7 @@ export default {
     extend: {
       animation: {
         text: "text 5s ease infinite",
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
       },
       keyframes: {
         text: {
@@ -17,17 +18,12 @@ export default {
             "background-position": "center right",
           },
         },
-      },
-
-      animation: {
-        "infinite-scroll": "infinite-scroll 25s linear infinite",
-      },
-      keyframes: {
         "infinite-scroll": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
         },
       },
+      // cusor
       cursor: {
         mincursor: "url(/cursor.webp) 25 25, pointer",
       },
