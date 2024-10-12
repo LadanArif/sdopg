@@ -27,6 +27,10 @@ export default {
       cursor: {
         mincursor: "url(/cursor.webp) 25 25, pointer",
       },
+
+      fontFamily: {
+        archivo: ["archivo", "sans-serif"],
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms"), require("@tailwindcss/aspect-ratio"), require("@tailwindcss/container-queries")],
